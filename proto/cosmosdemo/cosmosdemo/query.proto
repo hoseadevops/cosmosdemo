@@ -1,0 +1,26 @@
+syntax = "proto3";
+package hoseadevops.cosmosdemo.cosmosdemo;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "cosmosdemo/cosmosdemo/params.proto";
+
+option go_package = "github.com/hoseadevops/cosmosdemo/x/cosmosdemo/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/hoseadevops/cosmosdemo/cosmosdemo/params";
+  }
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}

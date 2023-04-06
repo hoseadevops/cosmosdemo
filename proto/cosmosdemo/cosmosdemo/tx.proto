@@ -1,0 +1,7 @@
+syntax = "proto3";
+package hoseadevops.cosmosdemo.cosmosdemo;
+
+option go_package = "github.com/hoseadevops/cosmosdemo/x/cosmosdemo/types";
+
+// Msg defines the Msg service.
+service Msg {}
